@@ -75,13 +75,4 @@ flutter:
   # see https://flutter.dev/custom-fonts/#from-packages
 
   assets:
-    - assets/229081.png
-    - assets/301160.png
-    - assets/633626.png
-    - assets/877830.png
-    - assets/1302436.png
-    - assets/1609553.png
-    - assets/1950901.png
-    - assets/1950930.png
-    - assets/1951038.png
-    - assets/Twitterアイコン.jpg
+    - assets/sample/

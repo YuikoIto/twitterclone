@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:twitterclone/Home.dart';
+import 'package:twitterclone/KeyWord.dart';
+import 'package:twitterclone/Notifications.dart';
+import 'package:twitterclone/Message.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,9 +15,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: new ThemeData(
-        primaryColor: Colors.white
+        primaryColor: Colors.white,
+        accentColor: Colors.blue,
       ),
-      home: MyHomePage(),
+      home: new MyHomePage(),
     );
   }
 }
@@ -24,6 +29,14 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int currentIndex = 0;
+
+  List tabItemWidget =[
+    Home(),
+    KeyWord(),
+    Notifications(),
+    Message(),
+  ];
   @override
   Widget build(BuildContext context){
     return new Scaffold(
@@ -31,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: new Text("ホーム"),
       ),
       body: new Center(
-        child: Text("Hello World")
+        child: tabItemWidget[currentIndex],
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: 0,
@@ -59,6 +72,8 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   _onTaped(int index){
-    print(index);
+    setState(() {
+      currentIndex = index;
+    });
   }
 }

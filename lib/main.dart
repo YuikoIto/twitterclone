@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:twitterclone/Home.dart';
 import 'package:twitterclone/KeyWord.dart';
-import 'package:twitterclone/Message.dart';
 import 'package:twitterclone/Notifications.dart';
+import 'package:twitterclone/Message.dart';
 
 void main() {
   runApp(MyApp());
@@ -34,8 +34,8 @@ class _MyHomePageState extends State<MyHomePage> {
   List tabItemWidget =[
     Home(),
     KeyWord(),
-    Message(),
     Notifications(),
+    Message(),
   ];
   @override
   Widget build(BuildContext context){

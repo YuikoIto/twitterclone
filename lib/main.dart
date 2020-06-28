@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:twitterclone/Home.dart';
-import 'package:twitterclone/KeyWord.dart';
-import 'package:twitterclone/Notifications.dart';
-import 'package:twitterclone/Message.dart';
+import 'package:twitterclone/screens/chat_screen.dart';
+import 'package:twitterclone/widgets/Home.dart';
+import 'package:twitterclone/widgets/KeyWord.dart';
+import 'package:twitterclone/widgets/Notifications.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'FlutterTwitter',
       theme: new ThemeData(
         primaryColor: Colors.white,
         accentColor: Colors.blue,
+        primarySwatch: Colors.blue,
       ), 
       home: new MyHomePage(),
     );
@@ -35,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
     Home(),
     KeyWord(),
     Notifications(),
-    Message(),
+    ChatScreen(),
   ];
   @override
   Widget build(BuildContext context){

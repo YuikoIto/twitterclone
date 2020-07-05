@@ -15,18 +15,31 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
+    //Detects when user sign in
     googleSignIn.onCurrentUserChanged.listen((account) {
-      if (account != null) {
-        print('すでにログインしています！!: $account');
-        setState(() {
-          isAuth = true;
-        });
-      } else {
-        setState(() {
-          isAuth = false;
-        });
-      }
+      handleSignIn(account);
+    }, onError: (err) {
+      print('エラーがでました: $err');
     });
+    // Reauthenticate user when app is opened
+    googleSignIn.signInSilently(suppressErrors: false).then((account) {
+      handleSignIn(account);
+    }).catchError((err) {
+      print('エラーがでました: $err');
+    });
+  }
+
+  handleSignIn(GoogleSignInAccount account) {
+    if (account != null) {
+      print('すでにログインしています！!: $account');
+      setState(() {
+        isAuth = true;
+      });
+    } else {
+      setState(() {
+        isAuth = false;
+      });
+    }
   }
 
   login() {
